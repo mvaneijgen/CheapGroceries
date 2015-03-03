@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head prefix="og: http://ogp.me/ns#">
+<head prefix="og: http://ogp.me/ns#">
 
   <!-- Standard Meta -->
   <meta charset="utf-8" />
@@ -14,25 +14,25 @@
   
   <!-- Site Properities -->
   
-    
+  
   
   
   <title>Cheap Groceries &middot; Cheap Groceries</title>
-  <link rel="canonical" href="http://mvaneijgen.nl//">
+  <link rel="canonical" href="http://mvaneijgen.nl/CheapGroceries/">
   
   <!-- Open Graph. Refer https://developers.facebook.com/docs/web/tutorials/scrumptious/open-graph-object -->
   
   
   <meta property="og:locale" content="en_US">
-  <meta property="og:url" content="http://mvaneijgen.nl//">
+  <meta property="og:url" content="http://mvaneijgen.nl/CheapGroceries/">
   <meta property="og:title" content="Cheap Groceries">
   <meta property="og:site_name" content="Cheap Groceries">
   <meta property="og:description" content="">
-  <meta property="og:image" content="http://mvaneijgen.nl/http://i.imgur.com/HagSD8L.jpeg">
+  <meta property="og:image" content="http://mvaneijgen.nl/CheapGroceries/tile-wide.png">
   <meta property="og:image:width" content="640">
   <meta property="og:image:height" content="300">
   
-  <meta name="twitter:card" content="http://mvaneijgen.nl/http://i.imgur.com/HagSD8L.jpeg">
+  <meta name="twitter:card" content="http://mvaneijgen.nl/CheapGroceries/tile-wide.png">
   <meta name="twitter:site" content="@{ site.twitter_username }}">
   <meta name="twitter:creator" content="@mvaneijgen">
   
@@ -49,13 +49,33 @@
   <!-- Common Styles -->
   <link rel="stylesheet" type="text/css" href="/css/main.css">
   <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+
+  <script>
+
+    function byId(id) {
+      return document.getElementById(id);
+    }
+    window.onload = function() {
+      byId("submit").onclick = function(e) {
+        e.preventDefault();
+        var url = "https://www.dekadrive.nl/zoeken?search=" + byId("search").value;
+        byId("deka").src = url;
+        var url = "http://www.ah.nl/zoeken?rq=" + byId("search").value + "&globalsearch=true";
+        byId("ah").src = url;
+      };
+    }
+  </script>
   </head>
   <body class="global default">
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-   	<iframe src="https://www.dekadrive.nl/zoeken?search=banaan" name="deka" scrolling="auto" frameborder="no" align="center" height="100%" width = "49%"></iframe>
-<iframe src="http://www.ah.nl/zoeken?rq=banaan&globalsearch=true" name="deka" scrolling="auto" frameborder="no" align="center" height="100%" width = "49%"></iframe>
+   	<form action="">
+<input type="text" name="fname" id="search">
+<input type="submit" value="Submit" id="submit">
+</form>
+<iframe id="deka" src="https://www.dekadrive.nl/zoeken?search=banaan" name="deka" scrolling="auto" frameborder="no" align="center" height="100%" width = "49%"></iframe>
+<iframe id="ah" src="http://www.ah.nl/zoeken?rq=banaan&globalsearch=true" name="deka" scrolling="auto" frameborder="no" align="center" height="100%" width = "49%"></iframe>
   </body>
 
 </html>

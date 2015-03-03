@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head prefix="og: http://ogp.me/ns#">
+<head prefix="og: http://ogp.me/ns#">
 
   <!-- Standard Meta -->
   <meta charset="utf-8" />
@@ -14,9 +14,9 @@
   
   <!-- Site Properities -->
   {% if page.title == "Home" %}
-    {% capture title_tag %}{{ site.tagline }}{% endcapture %}
+  {% capture title_tag %}{{ site.tagline }}{% endcapture %}
   {% else %}
-    {% capture title_tag %}{{ page.title }}{% endcapture %}
+  {% capture title_tag %}{{ page.title }}{% endcapture %}
   {% endif %}
   
   <title>{{ title_tag }} &middot; {{ site.title }}</title>
@@ -55,3 +55,19 @@
   <!-- Common Styles -->
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/main.css">
   <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+
+  <script>
+
+    function byId(id) {
+      return document.getElementById(id);
+    }
+    window.onload = function() {
+      byId("submit").onclick = function(e) {
+        e.preventDefault();
+        var url = "https://www.dekadrive.nl/zoeken?search=" + byId("search").value;
+        byId("deka").src = url;
+        var url = "http://www.ah.nl/zoeken?rq=" + byId("search").value + "&globalsearch=true";
+        byId("ah").src = url;
+      };
+    }
+  </script>
